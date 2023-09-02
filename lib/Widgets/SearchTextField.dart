@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:locksmith/Utils/Colors.dart';
 
-class EmailTextField extends StatelessWidget {
+class SearchTextField extends StatelessWidget {
   final controller;
-  Icon iconData;
+  String iconData;
   String labelText;
-  EmailTextField({
+  SearchTextField({
     super.key,
     required this.controller,
     required this.iconData,
@@ -29,12 +29,12 @@ class EmailTextField extends StatelessWidget {
             ),
             filled: true,
             fillColor: ColorConstant.greyScaleColor,
-            prefixIcon: iconData,
+            prefixIcon: Image.asset('assets/images/$iconData.png'),
             hintText: labelText,
             hintStyle: GoogleFonts.urbanist(
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: ColorConstant.darkGreyColor,
+              color: const Color(0XFFBDBDBD),
             )),
       ),
     );

@@ -21,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
     return SafeArea(
       child: Consumer<TextFieldProvider>(
         builder: (context, val, child) => Scaffold(
-          backgroundColor: const Color.fromARGB(255, 244, 244, 244),
+          backgroundColor: Colors.white,
           body: Container(
             height: MediaQuery.of(context).size.height * 1.00,
             width: double.infinity,
@@ -62,6 +62,8 @@ class SignUpScreen extends StatelessWidget {
                       color: ColorConstant.darkGreyColor,
                     ),
                     labelText: 'Password...',
+                    isObscure: val.isObsecure,
+                    onTap: val.isObsecureMethod,
                   ),
                   const SizedBox(height: 20),
                   PasswordTextField(
@@ -71,6 +73,8 @@ class SignUpScreen extends StatelessWidget {
                       color: ColorConstant.darkGreyColor,
                     ),
                     labelText: 'Confirm Password...',
+                    isObscure: val.isObsecure2,
+                    onTap: val.isObsecureMethod2,
                   ),
                   const SizedBox(height: 20),
                   ButtonWidget(
@@ -82,7 +86,7 @@ class SignUpScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MyText(
-                        myText: "Don’t have an account?",
+                        myText: "Already have an account?",
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                         fontColor: ColorConstant.greyColor.withOpacity(0.50),

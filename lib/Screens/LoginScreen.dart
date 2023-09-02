@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:locksmith/Provider/TextFieldProvider.dart';
+import 'package:locksmith/Screens/HomePage.dart';
 import 'package:locksmith/Screens/SignUpScreen.dart';
 import 'package:locksmith/Utils/Colors.dart';
 import 'package:locksmith/Widgets/ButtonWidget.dart';
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
       child: Consumer<TextFieldProvider>(
         builder: (context, val, child) => Scaffold(
-          backgroundColor: const Color.fromARGB(255, 244, 244, 244),
+          backgroundColor: Colors.white,
           body: Container(
             height: MediaQuery.of(context).size.height * 1.00,
             width: double.infinity,
@@ -53,6 +54,8 @@ class LoginScreen extends StatelessWidget {
                       color: ColorConstant.darkGreyColor,
                     ),
                     labelText: 'Password...',
+                    isObscure: val.isObsecure,
+                    onTap: val.isObsecureMethod,
                   ),
                   const SizedBox(height: 16),
                   Row(
@@ -75,7 +78,12 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   ButtonWidget(
                     buttonText: 'Sign in',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
                   ),
                   const SizedBox(height: 5),
                   TextButton(

@@ -8,11 +8,15 @@ class PasswordTextField extends StatelessWidget {
   final controller;
   Icon iconData;
   String labelText;
+  final isObscure;
+  void Function()? onTap;
   PasswordTextField({
     super.key,
     required this.controller,
     required this.iconData,
     required this.labelText,
+    required this.isObscure,
+    required this.onTap,
   });
 
   @override
@@ -20,7 +24,7 @@ class PasswordTextField extends StatelessWidget {
     return Consumer<TextFieldProvider>(
       builder: (context, value, child) => TextField(
         controller: controller,
-        obscureText: value.isObsecure,
+        obscureText: isObscure,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
@@ -31,7 +35,7 @@ class PasswordTextField extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
           filled: true,
-          fillColor: ColorConstant.crystalGreyColor,
+          fillColor: ColorConstant.greyScaleColor,
           prefixIcon: iconData,
           hintText: labelText,
           hintStyle: GoogleFonts.urbanist(
@@ -40,10 +44,8 @@ class PasswordTextField extends StatelessWidget {
             color: ColorConstant.darkGreyColor,
           ),
           suffixIcon: IconButton(
-              onPressed: () {
-                value.isObsecureMethod();
-              },
-              icon: value.isObsecure
+              onPressed: onTap,
+              icon: isObscure
                   ? Icon(
                       Icons.visibility_off,
                       color: ColorConstant.darkGreyColor,

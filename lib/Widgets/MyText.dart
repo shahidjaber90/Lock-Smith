@@ -7,12 +7,21 @@ class MyText extends StatelessWidget {
   double fontSize;
   FontWeight fontWeight;
   Color fontColor;
-  MyText({super.key, required this.myText, required this.fontSize, required this.fontWeight, required this.fontColor});
+  TextAlign? textAligns;
+  MyText(
+      {super.key,
+      required this.myText,
+      required this.fontSize,
+      required this.fontWeight,
+      required this.fontColor,
+      this.textAligns,
+      });
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      myText,style: GoogleFonts.urbanist(
+      myText,
+      textAlign: textAligns, style: GoogleFonts.urbanist(
         fontSize: fontSize,
         fontWeight: fontWeight,
         letterSpacing: 0.5,
