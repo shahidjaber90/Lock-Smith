@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:locksmith/Screens/ViewInventory.dart';
 import 'package:locksmith/Utils/Colors.dart';
 import 'package:locksmith/Widgets/ButtonWidget.dart';
 import 'package:locksmith/Widgets/DetailsTextField.dart';
@@ -41,7 +42,7 @@ class SubmitInventory extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Icon(Icons.arrow_back, color: Colors.white),
-                            SvgPicture.asset('assets/svg/appbar.svg'),
+                            Image.asset('assets/images/no.jpg'),
                             SvgPicture.asset('assets/svg/Notification.svg'),
                           ],
                         ),
@@ -117,7 +118,8 @@ class SubmitInventory extends StatelessWidget {
                 ButtonWidget(
                   buttonText: 'Submit Inventory',
                   onTap: () {
-                    showDialogBox(context);
+                    showDialogBox(context, 'Congratulations',
+                        'Your successfully add\n inventory.');
                   },
                 )
               ],
@@ -129,16 +131,17 @@ class SubmitInventory extends StatelessWidget {
   }
 }
 
-showDialogBox(context) {
+showDialogBox(context, String title, String content) {
   return showDialog(
     barrierDismissible: false,
     context: context,
     builder: (context) {
       return AlertDialog(
+        elevation: 0,
         backgroundColor: Colors.transparent,
         title: Container(
           height: 400,
-          width: double.infinity,
+          width: MediaQuery.of(context).size.width * 1.00,
           decoration: BoxDecoration(
             color: ColorConstant.whiteColor,
             borderRadius: BorderRadius.circular(12),
@@ -148,12 +151,16 @@ showDialogBox(context) {
             children: [
               InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ViewInventory()));
+                    // Navigator.pop(context);
                   },
                   child: SvgPicture.asset('assets/svg/done.svg')),
               const SizedBox(height: 26),
               Text(
-                'Congratulations',
+                title,
                 style: GoogleFonts.inter(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -165,13 +172,16 @@ showDialogBox(context) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Your successfully add\n inventory.',
+                    content,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.inter(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                       color: const Color(0XFF6C6969),
                     ),
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
+                    maxLines: 3,
                   ),
                 ],
               ),

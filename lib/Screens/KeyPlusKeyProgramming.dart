@@ -37,7 +37,7 @@ class KeyPlusKeyProgramming extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Icon(Icons.arrow_back, color: Colors.white),
-                          SvgPicture.asset('assets/svg/appbar.svg'),
+                          Image.asset('assets/images/no.jpg'),
                           SvgPicture.asset('assets/svg/Notification.svg'),
                         ],
                       ),
@@ -95,10 +95,8 @@ class KeyPlusKeyProgramming extends StatelessWidget {
               ButtonWidget(
                 buttonText: 'Charge',
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>  MyInvoice()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyInvoice()));
                 },
               ),
             ],

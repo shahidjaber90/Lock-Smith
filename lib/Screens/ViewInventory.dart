@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:locksmith/Screens/Cash.dart';
+import 'package:locksmith/Screens/InventoryHistory.dart';
+import 'package:locksmith/Screens/KeyProgrammingHistory.dart';
+import 'package:locksmith/Screens/OpenCarHistory.dart';
 import 'package:locksmith/Screens/ServicePayment.dart';
-import 'package:locksmith/Screens/SimpleKey.dart';
 import 'package:locksmith/Utils/Colors.dart';
 import 'package:locksmith/Widgets/MyText.dart';
 
-class Payment extends StatelessWidget {
-  const Payment({super.key});
+class ViewInventory extends StatelessWidget {
+  const ViewInventory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class Payment extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ServicePayment()));
+                          builder: (context) => const OpenCarHistory()));
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -52,7 +54,7 @@ class Payment extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MyText(
-                    myText: 'Via Cart',
+                    myText: 'Open car History',
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     fontColor: ColorConstant.whiteColor,
@@ -62,8 +64,10 @@ class Payment extends StatelessWidget {
               const SizedBox(height: 16),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Cash()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const InventoryHistory()));
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -74,7 +78,7 @@ class Payment extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MyText(
-                    myText: 'Via Cash',
+                    myText: 'Inventory History',
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     fontColor: ColorConstant.whiteColor,
@@ -84,8 +88,10 @@ class Payment extends StatelessWidget {
               const SizedBox(height: 16),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Cash()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const KeyProgrammingHistory()));
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -96,7 +102,7 @@ class Payment extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MyText(
-                    myText: 'Invoice',
+                    myText: 'Key Programming History',
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     fontColor: ColorConstant.whiteColor,
